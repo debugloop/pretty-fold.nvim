@@ -173,7 +173,8 @@ function M.keymap_open_close(key)
          fn.timer_start(1, _G.pretty_fold_preview[bufnr].close)
       end
    else
-      api.nvim_command('normal! '..key)
+      -- api.nvim_command('normal! '..key)
+      api.nvim_feedkeys(key, 'n', true)
    end
 end
 
@@ -188,7 +189,8 @@ function M.keymap_close(key)
    elseif fn.foldclosed('.') ~= -1 then
       api.nvim_command('normal! zv')
    else
-      api.nvim_command('normal! '..key)
+      -- api.nvim_command('normal! '..key)
+      api.nvim_feedkeys(key, 'n', true)
    end
 end
 
